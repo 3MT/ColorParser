@@ -1,0 +1,5 @@
+Color Parser program
+
+Contact: aidanl03@gmail.com
+
+This program takes console input in the form of some kind of english description of a color (e.g. bright red, dark green) then displays an SDL window with several colors it believes match your description.
