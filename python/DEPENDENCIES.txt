@@ -1,0 +1,2 @@
+You will need to install NLTK to run this program.
+NLTK is available here: http://nltk.org/install.html
