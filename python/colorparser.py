@@ -36,6 +36,9 @@ saturationAdjectives = [
     ["vibrant", 1.3],
     ["sharp", 1.3],
     ["dull", 0.7],
+    ["sparkly", 1.4],
+    ["shiny", 1.4],
+    ["matte", 0.7],
     ["cool", 0.9] ]
 
     #brightness adjectives increase or decrease brightness, they add or subtract equally to each color, increasing brightness but losing some saturation.
@@ -43,6 +46,7 @@ brightnessAdjectives = [
     ["bright", 0.3],
     ["light", 0.2],
     ["dim", -0.2],
+    ["matte", 0.2],
     ["dark", -0.3] ]
         
     # display color suggestions. Intakes text, compares it to the color list then returns a color it feels is appropriate.
@@ -62,6 +66,14 @@ def parseText(text):
                 blue = bcolor[3];
                 colorfound = True;
                 
+        #if any words match a brightness word    
+    for word in sentence:
+        for adj in brightnessAdjectives:
+            if word == adj[0]:
+                red = max(min(red+adj[1], 1.0), 0.0) #clamp between 0.0 and 1.0
+                green = max(min(green+adj[1], 1.0), 0.0)
+                blue = max(min(blue+adj[1], 1.0), 0.0)
+                
         #if any words match a saturation word...
     for word in sentence:
         for adj in saturationAdjectives:
@@ -70,15 +82,8 @@ def parseText(text):
                 green = max(min(green*adj[1], 1.0), 0.0)
                 blue = max(min(blue*adj[1], 1.0), 0.0)
                 
-        #if any words match a brightness word    
-    for word in sentence:
-        for adj in brightnessAdjectives:
-            if word == adj[0]:
-                red = max(min(red+adj[1], 1.0), 0.0) #clamp between 0.0 and 1.0
-                green = max(min(green+adj[1], 1.0), 0.0)
-                blue = max(min(blue+adj[1], 1.0), 0.0)
 
     if (not colorfound):
         raise NameError('ColorNotFound');
                 
-    return color(red, blue, green);
+    return color(red, green, blue);
