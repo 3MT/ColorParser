@@ -1,2 +1,5 @@
-You will need to install NLTK to run this program.
+You will need to install NLTK and Pyglet to run this program.
+
 NLTK is available here: http://nltk.org/install.html
+
+Pyglet is available here: http://www.pyglet.org/download.html

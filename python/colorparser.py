@@ -56,15 +56,20 @@ def parseText(text):
     red = 0.0;
     blue = 0.0;
     green = 0.0;
-    colorfound = False;
+    colorfound = 0;
         #find if any of our words match a color
     for word in sentence:
         for bcolor in baseColors: 
-            if word == bcolor[0]: 
-                red = bcolor[1];
-                green = bcolor[2];
-                blue = bcolor[3];
-                colorfound = True;
+            if word == bcolor[0]:
+                colorfound += 1;
+                if (colorfound > 1): #if multiple colors match, we sorta average between them.
+                    red = (red+bcolor[1])/colorfound;
+                    green = (green+bcolor[2])/colorfound;
+                    blue = (blue+bcolor[3])/colorfound;
+                else:
+                    red = bcolor[1];
+                    green = bcolor[2];
+                    blue = bcolor[3];
                 
         #if any words match a brightness word    
     for word in sentence:
@@ -83,7 +88,7 @@ def parseText(text):
                 blue = max(min(blue*adj[1], 1.0), 0.0)
                 
 
-    if (not colorfound):
+    if (colorfound == 0):
         raise NameError('ColorNotFound');
                 
     return color(red, green, blue);
