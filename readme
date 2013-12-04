@@ -2,4 +2,8 @@ Color Parser program
 
 Contact: aidanl03@gmail.com
 
-This program takes console input in the form of some kind of english description of a color (e.g. bright red, dark green) then displays an SDL window with several colors it believes match your description.
+This program takes console input in the form of some kind of english description of a color (e.g. bright red, dark green) then displays an OGL window displaying what it believes your color to be
+
+Documentation on the files can be found in the documentation.txt.
+
+Dependencies.txt contains links to any external dependencies you need
