@@ -1,5 +1,5 @@
 
-        # Color Parser 0.0
+        # Color Parser 1.0
         # Creator - Aidan Lee
         # Contact - Aidanl03@gmail.com
         # This code falls under the GNU license

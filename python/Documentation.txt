@@ -1,0 +1,36 @@
+color.py
+
+Contains: color object
+
+Constructor:
+color(float r, float g, float b)
+ r - Red value of color.
+ g - Green value of color.
+ b - Blue value of color.
+
+Functions:
+color.printColor()
+ Prints the contents of the color in the format "Color(r,g,b)".
+
+
+
+colorparser.py
+
+Contains: colorparser interface
+
+Functions:
+parseText(string text)
+ Takes a raw string of input e.g. "bright orange" and returns a suitable color object (if it can) throws NameError('ColorNotFound') if no color matches.
+
+
+
+main.py
+
+Contains: Main loop and automated test data
+
+Functions:
+testColors()
+ Automatically inputs lots of input and gets the returned values from colorparser. Doesn't actually check if output is valid, that has to be done by hand (since it's a little subjective) but it saves some time.
+
+main loop
+ Asks for color input, then if the user desires it, it'll pop up an OGL window showing what the color they specified looks like. It also prints the contents of the color object. Enterring test will run the test data. Enterring quit will end the program.
